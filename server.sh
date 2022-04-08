@@ -272,6 +272,14 @@ function allRun() {
   gethRun
 }
 
+function dockerBuild() {
+  docker build -t sycue/mns .
+}
+
+function dockerRun() {
+  docker run -p 3000:3000 sycue/mns
+}
+
 # opts
 case $OPT in
   gethAccount)
@@ -324,6 +332,14 @@ case $OPT in
 
   mysqlRun)
     mysqlRun
+    ;;
+
+  dockerBuild)
+    dockerBuild
+    ;;
+
+  dockerRun)
+    dockerRun
     ;;
 
   *)
