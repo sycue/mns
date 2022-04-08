@@ -22,7 +22,7 @@ export default function WithLargeQuote() {
         company brand.
       </Text>
       <Box textAlign={"center"}>
-        <Avatar mb={2} icon={<FcManager fontSize="2rem" />} />
+        <Avatar mb={2} icon={<FcManager fontSize="2rem" />} bg="green.500" />
         <Text fontWeight={600}>Marco Dapper</Text>
         <Text fontSize={"sm"} color={useColorModeValue("gray.400", "gray.400")}>
           MetaName President
