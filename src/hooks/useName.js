@@ -3,11 +3,9 @@ import MetaMaskOnboarding from "@metamask/onboarding";
 import { queryContract, invokeContract, web3 } from "./useWeb3";
 import { toLower } from "lodash";
 import deploy from "../configs/deploy.json";
+import abi from "../configs/MNS.abi.json";
 
-const {
-  contracts_MNS_sol_MNS_address: address,
-  contracts_MNS_sol_MNS_abi: abi
-} = deploy;
+const { MNSAddress: address } = deploy;
 
 /*
 if (typeof window === "undefined") {
@@ -191,17 +189,12 @@ export function useFetchName(name) {
     async function fetchName() {
       const _tokenId = await queryName("getTokenId", [name]);
       const tokenId = web3.utils.numberToHex(_tokenId);
-      console.log("tokenId", tokenId);
       const exists = await queryName("exists", [tokenId]);
-      console.log("exists", exists);
       let [owner, expiryTime, tokenURI] = ["", 0, ""];
       if (exists) {
         owner = await queryName("ownerOf", [tokenId]);
-        console.log("owner", owner);
-        expiryTime = await queryName("getExpiryTime", [tokenId]);
-        console.log("expiryTime", expiryTime);
+        expiryTime = await queryName("recordTTL", [tokenId]);
         tokenURI = await queryName("tokenURI", [tokenId]);
-        console.log("tokenURI", tokenURI);
       }
       setData({ name, tokenId, exists, owner, expiryTime, tokenURI });
       setLoading(false);
@@ -226,12 +219,11 @@ export function useFetchOwnedNames() {
 
     async function fetchNames() {
       const balance = await queryName("balanceOf", [owner]);
-      console.log("balance", balance);
       let names = [];
       for (let i = 0; i < balance; i++) {
         const tokenId = await queryName("tokenOfOwnerByIndex", [owner, i]);
-        const expiryTime = await queryName("getExpiryTime", [tokenId]);
-        const name = await queryName("getName", [tokenId]);
+        const expiryTime = await queryName("recordTTL", [tokenId]);
+        const name = await queryName("recordName", [tokenId]);
         names.push({ tokenId, name, expiryTime });
       }
 
