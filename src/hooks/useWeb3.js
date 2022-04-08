@@ -39,6 +39,14 @@ export function getSelectedAddress() {
   return window.ethereum?.selectedAddress;
 }
 
+export async function deployContract({ abi, bytecode, args, ...rest }) {
+  const contract = new web3.eth.Contract(abi);
+  const params = { data: bytecode, arguments: args };
+  const data = contract.deploy(params).encodeABI();
+  const tx = await send({ data, ...rest });
+  return tx;
+}
+
 export async function invokeContract({ abi, address, method, args, ...rest }) {
   const contract = new web3.eth.Contract(abi, address);
   const data = contract.methods[method](...args).encodeABI();
