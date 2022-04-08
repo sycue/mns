@@ -85,7 +85,7 @@ async function contractQuery(name, method, args = []) {
 
 function deployMNS() {
   const args = [];
-  contractDeploy({ name: "contracts_MNS_sol_MNS", args });
+  contractDeploy({ name: "src_contracts_MNS_sol_MNS", args });
 }
 
 let args = process.argv.slice(2);

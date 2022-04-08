@@ -34,8 +34,8 @@ if (!fs.existsSync(keyFile)) {
 const account = JSON.parse(fs.readFileSync(keyFile));
 
 module.exports = {
-  // rpcurl: "http://localhost:22001",
-  rpcurl: "http://localhost:15451",
+  // rpcurl: "http://localhost:15451",
+  rpcurl: "https://polygon-rpc.com",
   password: "",
   account,
   deployConfig

@@ -14,8 +14,8 @@ async function send({
   password = "",
   to = "",
   data,
-  value = 0,
-  gasPrice = 0
+  value = 0
+  // gasPrice = 0
   // gasLimit = 9300000,
 }) {
   web3.eth.handleRevert = true;
@@ -23,11 +23,13 @@ async function send({
     const from = web3.eth.accounts.decrypt(account, password);
     const nonce = await web3.eth.getTransactionCount(from.address);
     // const gasLimit = await web3.eth.estimateGas({ data });
-    var block = await web3.eth.getBlock("latest");
-    const gasLimit = block.gasLimit;
-    console.log("gasLimit", block);
+    // var block = await web3.eth.getBlock("latest");
+    // const gasLimit = block.gasLimit;
+    // console.log("gasLimit", block);
+    const gasLimit = web3.utils.toHex(4000000);
+    const maxPriorityFeePerGas = 40000000000;
     let tx = null;
-    let params = { gasPrice, gasLimit, nonce, to, value, data };
+    let params = { gasLimit, maxPriorityFeePerGas, nonce, to, value, data };
 
     let sign = await web3.eth.accounts.signTransaction(params, from.privateKey);
     console.log("sign", sign.rawTransaction);
