@@ -277,7 +277,7 @@ function dockerBuild() {
 }
 
 function dockerRun() {
-  docker run -p 3000:3000 sycue/mns
+  docker run --name mns -p 3000:3000 sycue/mns
 }
 
 # opts
