@@ -1,5 +1,6 @@
 import NextLink from "next/link";
 import {
+  Badge,
   Box,
   Flex,
   Container,
@@ -76,6 +77,9 @@ export default function Header() {
               >
                 MetaName
               </Text>
+              <Badge ml={2} colorScheme="green">
+                Beta
+              </Badge>
             </Flex>
           </NextLink>
 
