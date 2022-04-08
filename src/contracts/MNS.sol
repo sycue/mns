@@ -16,8 +16,8 @@ contract MNS is Context, Ownable, ERC721Burnable, ERC721Enumerable, ERC721URISto
     }
 
     mapping(uint256 => Record) records;
-    // uint256 private _renewPeriod = 365 days;
-    uint256 private _renewPeriod = 5 minutes;
+    uint256 private _renewPeriod = 365 days;
+    // uint256 private _renewPeriod = 5 minutes;
 
     constructor() ERC721("MetaName", "MNS") {}
 
