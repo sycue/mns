@@ -81,7 +81,7 @@ export default function LargeWithLogoLeft() {
             >
               Twitter
             </ChakraLink>
-            <ChakraLink target="_blank" href={"https://discord.gg/JMnAFY2tTU"}>
+            <ChakraLink target="_blank" href={"https://discord.gg/e72ayWkP2e"}>
               Discord
             </ChakraLink>
             <ChakraLink

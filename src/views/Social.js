@@ -51,7 +51,7 @@ export default function Social() {
       >
         <FaTwitter />
       </SocialButton>
-      <SocialButton label={"Discord"} href={"https://discord.gg/JMnAFY2tTU"}>
+      <SocialButton label={"Discord"} href={"https://discord.gg/e72ayWkP2e"}>
         <FaDiscord />
       </SocialButton>
       <SocialButton
