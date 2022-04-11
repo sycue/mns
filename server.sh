@@ -282,7 +282,7 @@ function dockerRun() {
 
 function dockerRestart() {
   docker pull sycue/mns
-  docker stop sycue/mns
+  docker stop mns
   docker rm mns
   dockerRun
 }
