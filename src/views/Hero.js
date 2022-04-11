@@ -44,10 +44,10 @@ export default function CallToActionWithIllustration() {
   return (
     <Flex
       bg={useColorModeValue("gray.200", "gray.900")}
-      css={{
-        background: `url(${Bg.src}) center bottom repeat-x`
-      }}
-      minH="75vh"
+      bgImage={`url('${Bg.src}')`}
+      bgPosition="center bottom"
+      bgRepeat="repeat-x"
+      minH="90vh"
       alignItems="center"
     >
       <Container maxW={"5xl"}>
@@ -112,7 +112,7 @@ export default function CallToActionWithIllustration() {
               _hover={{ bg: "green.500" }}
               onClick={handleSubmit}
             >
-              Get started
+              Get it free
             </Button>
           </Stack>
         </Stack>
