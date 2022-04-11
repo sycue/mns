@@ -280,6 +280,13 @@ function dockerRun() {
   docker run -d --name mns -p 3000:3000 sycue/mns
 }
 
+function dockerRestart() {
+  docker pull sycue/mns
+  docker stop sycue/mns
+  docker rm mns
+  dockerRun
+}
+
 # opts
 case $OPT in
   gethAccount)
@@ -340,6 +347,10 @@ case $OPT in
 
   dockerRun)
     dockerRun
+    ;;
+
+  dockerRestart)
+    dockerRestart
     ;;
 
   *)
